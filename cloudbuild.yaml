@@ -32,9 +32,7 @@ steps:
     gcloud deploy apply --file deploy/dev.yaml --region=asia-east1
     gcloud deploy apply --file deploy/prod.yaml --region=asia-east1
 
-    gcloud deploy releases create 'app-release-${SHORT_SHA}' --delivery-pipeline=gke-cicd-pipeline --region=asia-east1 --skaffold-file=skaffold.yaml
-    gcloud deploy releases create 'app-release-${SHORT_SHA}' --delivery-pipeline=gke-cicd-pipeline --region=asia-east1 --from-k8s-manifest=./kubernetes/app.yaml
-    gcloud deploy releases create 'app-release-${SHORT_SHA}' --delivery-pipeline=gke-cicd-pipeline --region=asia-east1 --from-k8s-manifest=./kubernetes/app2.yaml
+    gcloud deploy releases create "app-release-$BUILD_ID" --delivery-pipeline=gke-cicd-pipeline --region=asia-east1 --skaffold-file=skaffold.yaml
 
 
 
